@@ -6,7 +6,7 @@ $RepoName        = "maged-ahmed-portfolio"
 
 $remoteUrl = "https://github.com/$GitHubUsername/$RepoName.git"
 $projectRoot = $PSScriptRoot
-
+if (Test-Path "C:\Program Files\Git\cmd\git.exe") { $env:Path = "C:\Program Files\Git\cmd;" + $env:Path }
 Set-Location $projectRoot
 
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
@@ -29,14 +29,18 @@ if ($LASTEXITCODE -ne 0) { git commit -m "Update portfolio" }
 Write-Host "Checking remote..."
 $currentRemote = git remote get-url origin 2>$null
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "Adding remote: $remoteUrl"
     git remote add origin $remoteUrl
-} else {
-    Write-Host "Remote already set: $currentRemote"
 }
-
-Write-Host "Pushing to GitHub (you may be asked for username and Personal Access Token)..."
+# Use token from file for push if present
+$tokenFile = Join-Path $projectRoot "Githubtokkeen.txt"
+if (Test-Path $tokenFile) {
+    $token = (Get-Content $tokenFile -Raw).Trim()
+    git remote set-url origin "https://${GitHubUsername}:$token@github.com/$GitHubUsername/$RepoName.git"
+}
+Write-Host "Pushing to GitHub..."
 git push -u origin main
+# Remove token from remote URL after push
+git remote set-url origin $remoteUrl
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host ""
