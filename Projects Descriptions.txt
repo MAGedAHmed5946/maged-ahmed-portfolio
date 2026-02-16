@@ -1,0 +1,8 @@
+**Size Matters**
+A 3D puzzle game built in Unreal Engine where the core mechanic revolves around scaling objects up and down using a shrink ray. I designed and implemented the gameplay logic for object resizing, including a shrinkable cube, door, and moving platform. I handled the interaction system, lever-controlled platform behavior, and overall puzzle flow to create small but creative challenges around the “Tiny World” theme.
+
+**Denshway Revenge**
+A third-person action game inspired by a historical setting, focused on combat and cinematic moments. I developed the core gameplay systems including shooting mechanics, AI behavior, player combat logic, UI elements, and level flow. I worked on polishing the experience with sound, feedback effects, and structured mission progression.
+
+**Dungeon Rider**
+A fast-paced action game centered around movement and combat inside a dungeon environment. I implemented player controls, core combat mechanics, enemy interactions, and basic game flow. The focus was on delivering a responsive gameplay experience with clear mechanics and smooth interaction between player and enemies.

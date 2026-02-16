@@ -12,7 +12,7 @@
 
 .cv-back {
   display: inline-block;
-  color: var(--amber);
+  color: var(--gold);
   text-decoration: none;
   font-family: 'Cinzel', serif;
   font-size: 0.9rem;
@@ -22,13 +22,13 @@
 }
 
 .cv-back:hover {
-  color: var(--amber-light);
+  color: var(--orange);
 }
 
 .cv-header {
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--red);
 }
 
 .cv-name {
@@ -41,7 +41,7 @@
 
 .cv-title {
   font-size: 1.1rem;
-  color: var(--amber);
+  color: var(--gold);
   margin: 0 0 1.25rem;
   letter-spacing: 0.05em;
 }
@@ -58,7 +58,7 @@
   font-family: 'Cinzel', serif;
   font-weight: 600;
   font-size: 1.15rem;
-  color: var(--amber);
+  color: var(--gold);
   margin: 0 0 0.75rem;
   letter-spacing: 0.05em;
 }
@@ -79,15 +79,15 @@
 }
 
 .cv-list a {
-  color: var(--amber);
+  color: var(--gold);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
 
 .cv-list a:hover {
-  color: var(--amber-light);
-  border-bottom-color: var(--amber-light);
+  color: var(--orange);
+  border-bottom-color: var(--orange);
 }
 
 .cv-contact {
