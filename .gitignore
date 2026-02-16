@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Secrets — never commit
+Githubtokkeen.txt
+*[Tt]oken*.txt
+
+# Optional: uncomment to ignore the deploy guide when pushing
+# DEPLOY-GITHUB-PAGES.md
