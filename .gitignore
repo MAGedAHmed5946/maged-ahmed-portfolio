@@ -13,5 +13,8 @@ desktop.ini
 Githubtokkeen.txt
 *[Tt]oken*.txt
 
+# One-off PDF helper (optional: remove to track it)
+update_pdf_email.py
+
 # Optional: uncomment to ignore the deploy guide when pushing
 # DEPLOY-GITHUB-PAGES.md
