@@ -102,36 +102,70 @@ function ensureAudioContext() {
   return audioContext;
 }
 
-function beep({ frequency = 500, duration = 0.06, type = 'sine', volume = 0.03 } = {}) {
+function oneShotNoise({ duration = 0.05, volume = 0.02, hp = 900, lp = 3500 } = {}) {
+  if (!soundEnabled) return;
+  const ctx = ensureAudioContext();
+  if (!ctx) return;
+
+  const frameCount = Math.max(1, Math.floor(ctx.sampleRate * duration));
+  const buffer = ctx.createBuffer(1, frameCount, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < frameCount; i += 1) {
+    data[i] = (Math.random() * 2 - 1) * (1 - i / frameCount);
+  }
+
+  const source = ctx.createBufferSource();
+  source.buffer = buffer;
+  const hpFilter = ctx.createBiquadFilter();
+  hpFilter.type = 'highpass';
+  hpFilter.frequency.value = hp;
+  const lpFilter = ctx.createBiquadFilter();
+  lpFilter.type = 'lowpass';
+  lpFilter.frequency.value = lp;
+  const gainNode = ctx.createGain();
+  gainNode.gain.setValueAtTime(volume, ctx.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+
+  source.connect(hpFilter);
+  hpFilter.connect(lpFilter);
+  lpFilter.connect(gainNode);
+  gainNode.connect(ctx.destination);
+
+  source.start();
+  source.stop(ctx.currentTime + duration);
+}
+
+function oneShotTone({ frequency = 220, duration = 0.05, type = 'triangle', volume = 0.025, endFrequency = null } = {}) {
   if (!soundEnabled) return;
   const ctx = ensureAudioContext();
   if (!ctx) return;
 
   const oscillator = ctx.createOscillator();
   const gainNode = ctx.createGain();
-
   oscillator.type = type;
-  oscillator.frequency.value = frequency;
-
+  oscillator.frequency.setValueAtTime(frequency, ctx.currentTime);
+  if (endFrequency) {
+    oscillator.frequency.exponentialRampToValueAtTime(endFrequency, ctx.currentTime + duration);
+  }
   gainNode.gain.setValueAtTime(volume, ctx.currentTime);
   gainNode.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
-
   oscillator.connect(gainNode);
   gainNode.connect(ctx.destination);
-
   oscillator.start();
   oscillator.stop(ctx.currentTime + duration);
 }
 
 function playHoverSound() {
-  // Soft metallic tick
-  beep({ frequency: 680, duration: 0.04, type: 'triangle', volume: 0.02 });
+  // Revolver hammer-cock style metallic tick
+  oneShotTone({ frequency: 520, endFrequency: 690, duration: 0.022, type: 'triangle', volume: 0.014 });
+  setTimeout(() => oneShotNoise({ duration: 0.014, volume: 0.009, hp: 1400, lp: 6200 }), 10);
 }
 
 function playClickSound() {
-  // Deeper mechanical click
-  beep({ frequency: 180, duration: 0.055, type: 'square', volume: 0.028 });
-  setTimeout(() => beep({ frequency: 320, duration: 0.03, type: 'triangle', volume: 0.018 }), 24);
+  // Revolver trigger + chamber snap
+  oneShotTone({ frequency: 135, endFrequency: 95, duration: 0.03, type: 'square', volume: 0.026 });
+  setTimeout(() => oneShotNoise({ duration: 0.02, volume: 0.016, hp: 700, lp: 4200 }), 12);
+  setTimeout(() => oneShotTone({ frequency: 840, endFrequency: 620, duration: 0.017, type: 'triangle', volume: 0.012 }), 18);
 }
 
 function updateSoundLabel() {
