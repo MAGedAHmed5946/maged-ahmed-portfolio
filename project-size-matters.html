@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Size Matters - Maged Ahmed Abdelrahman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cv.css">
+  <style>
+    .project-header-actions { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .project-main-image { width: 100%; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border); box-shadow: 0 4px 15px var(--shadow); }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="cv.html" class="nav-link nav-link-cv">View CV</a>
+    </nav>
+  </header>
+
+  <main class="cv-main">
+    <div class="cv-container">
+      <a href="index.html#projects" class="cv-back">&larr; Back to portfolio</a>
+
+      <header class="cv-header" style="text-align: left;">
+        <h1 class="cv-name">Size Matters</h1>
+        <p class="cv-title">Game Jam Project</p>
+        <div class="project-header-actions">
+          <a href="https://youtu.be/WtffC0cm5vk?si=lIsbNIj6R-dZuGbw" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch on YouTube</a>
+        </div>
+      </header>
+
+      <section class="cv-section">
+        <img src="images/size-matters.jpg" alt="Size Matters Project" class="project-main-image">
+        
+        <h2 class="cv-section-title">Project Overview</h2>
+        <p>A 3D puzzle game built in Unreal Engine where the core mechanic revolves around scaling objects up and down using a shrink ray.</p>
+        <ul class="cv-list" style="margin-top: 1rem;">
+          <li>Developed a shrink-ray gameplay mechanic involving dynamic object scaling and interactive puzzle logic.</li>
+          <li>Implemented physics-aware interactions and system-driven puzzle flow.</li>
+          <li>Structured gameplay communication between actors using Blueprint-based architecture.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; Maged Ahmed Abdelrahman | Game Programmer</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

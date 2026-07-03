@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denshway Revenge - Maged Ahmed Abdelrahman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cv.css">
+  <style>
+    .project-header-actions { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .project-main-image { width: 100%; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border); box-shadow: 0 4px 15px var(--shadow); }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="cv.html" class="nav-link nav-link-cv">View CV</a>
+    </nav>
+  </header>
+
+  <main class="cv-main">
+    <div class="cv-container">
+      <a href="index.html#projects" class="cv-back">&larr; Back to portfolio</a>
+
+      <header class="cv-header" style="text-align: left;">
+        <h1 class="cv-name">Denshway Revenge</h1>
+        <p class="cv-title">Historical-themed (Game Jam) gameplay project</p>
+        <div class="project-header-actions">
+          <a href="https://youtu.be/5yjx8e4E9xk?si=ZZU5rtud2FEUbyou" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch on YouTube</a>
+        </div>
+      </header>
+
+      <section class="cv-section">
+        <img src="images/denshway-revenge.jpg" alt="Denshway Revenge Project" class="project-main-image">
+        
+        <h2 class="cv-section-title">Project Overview</h2>
+        <p>A third-person action game inspired by a historical setting, focused on combat and cinematic moments.</p>
+        <ul class="cv-list" style="margin-top: 1rem;">
+          <li>Implemented core gameplay mechanics and AI behavior systems using Unreal Engine Blueprints.</li>
+          <li>Integrated animation systems including montages and state logic.</li>
+          <li>Collaborated closely with artists to deliver a playable prototype under strict time constraints.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; Maged Ahmed Abdelrahman | Game Programmer</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience - Maged Ahmed Abdelrahman | Game Programmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cv.css">
+  <style>
+    .project-header-actions { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .project-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .project-gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 4px 15px var(--shadow); object-fit: cover; aspect-ratio: 16/9; }
+    .project-main-image { width: 100%; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border); box-shadow: 0 4px 15px var(--shadow); }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="cv.html" class="nav-link nav-link-cv">View CV</a>
+    </nav>
+  </header>
+
+  <main class="cv-main">
+    <div class="cv-container">
+      <a href="index.html#projects" class="cv-back">&larr; Back to portfolio</a>
+
+      <header class="cv-header" style="text-align: left;">
+        <h1 class="cv-name">Experience (Graduation Project)</h1>
+        <p class="cv-title">3D Simulation & AI Tour Guide</p>
+        <div class="project-header-actions">
+          <a href="https://youtu.be/ASaL1q_FfwM" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch on YouTube</a>
+          <a href="https://drive.google.com/file/d/1ekD7SRikqLLx2AlEe-McA2ksnithG6q_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Playable Build</a>
+        </div>
+      </header>
+
+      <section class="cv-section">
+        <img src="images/experience-thumbnail.png" alt="Experience Project Main" class="project-main-image">
+        
+        <h2 class="cv-section-title">Project Overview</h2>
+        <p>As the Unreal Engine Developer on the team, I was responsible for building the entire 3D simulation from the ground up.</p>
+        <ul class="cv-list" style="margin-top: 1rem;">
+          <li>Developed a full 3D tourism simulation from the ground up using Unreal Engine Blueprint architecture.</li>
+          <li>Implemented interactive gameplay mechanics including fast-travel routing and dynamic horse-riding systems.</li>
+          <li>Integrated ConvAI to power an intelligent, voice-interactive virtual tour guide within the simulation.</li>
+          <li>Structured bidirectional HTTP API communication to synchronize player data seamlessly with a mobile app.</li>
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">Gallery</h2>
+        <div class="project-gallery">
+          <img src="images/frame_0231.jpg" alt="Experience Screenshot 1">
+          <img src="images/frame_0448.jpg" alt="Experience Screenshot 2">
+          <img src="images/frame_0464.jpg" alt="Experience Screenshot 3">
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; Maged Ahmed Abdelrahman | Game Programmer</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
