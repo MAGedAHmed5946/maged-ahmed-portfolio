@@ -1,4 +1,4 @@
-﻿// Smooth scroll for nav links
+// Smooth scroll for nav links
 const inPageAnchors = document.querySelectorAll('a[href^="#"]');
 inPageAnchors.forEach((anchor) => {
   anchor.addEventListener('click', function onAnchorClick(e) {
@@ -47,7 +47,25 @@ function openProjectModal(card) {
 
   modalTitle.textContent = card.dataset.projectTitle || 'Project';
   modalDescription.textContent = card.dataset.projectDescription || '';
-  modalYoutube.href = card.dataset.projectYoutube || '#';
+  
+  if (modalYoutube) {
+    if (card.dataset.projectYoutube) {
+      modalYoutube.href = card.dataset.projectYoutube;
+      modalYoutube.style.display = 'inline-flex';
+    } else {
+      modalYoutube.style.display = 'none';
+    }
+  }
+
+  const modalPlay = document.getElementById('project-modal-play');
+  if (modalPlay) {
+    if (card.dataset.projectPlay) {
+      modalPlay.href = card.dataset.projectPlay;
+      modalPlay.style.display = 'inline-flex';
+    } else {
+      modalPlay.style.display = 'none';
+    }
+  }
 
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
